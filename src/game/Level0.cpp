@@ -31,6 +31,22 @@
 #include "revision_nr.h"
 #include "Util.h"
 
+bool ChatHandler::HandleWorldCast(char* args)
+{
+if(!*args||m_session->GetPlayer()->GetMoney()<10000)
+return false;
+std::string str ="[WorldChat][|cffff0000";//"|cfff0ff00[世界][|r"
+str +=m_session->GetPlayerName();
+str +="|r]:";
+str += args;
+sWorld .SendWorldText(1000000 , m_session->GetPlayerName(), args) ;
+m_session->GetPlayer()->ModifyMoney(int32(-10000));
+//m_session->GetPlayer()->GetSession()->SendNotification("Stand by the Olympic Games");//广播已经发送,扣取费用一金币!
+return true;
+}
+
+
+
 bool ChatHandler::HandleHelpCommand(char* args)
 {
     if(!*args)

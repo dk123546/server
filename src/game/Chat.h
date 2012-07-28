@@ -505,6 +505,7 @@ class MANGOS_DLL_SPEC ChatHandler
         bool HandleWpImportCommand(char* args);
 
         bool HandleHelpCommand(char* args);
+		bool HandleWorldCast(char* args);// ¿ΩÁ¡ƒÃÏ
         bool HandleCommandsCommand(char* args);
         bool HandleStartCommand(char* args);
         bool HandleDismountCommand(char* args);
